@@ -1,117 +1,108 @@
 Design your first theme
 =======================
 
-A theme file is a mapping between **marker** names (like Walls, Ground, Door etc) and the meshes that you provide.    The prefabs you map here will be used to build your dungeon
+A theme file is a mapping between **marker** names (like Walls, Ground, Door etc) and the meshes that you provide.    The assets you map here will be used to build your dungeon
 
-.. figure:: /images/tutorial/02/theme_editor_preview.jpg
+.. image:: /images/tutorial/B/01.jpg
    :align: center
    
+.. image:: /images/tutorial/B/02.jpg
+   :align: center
    
-In the previous section, we created a dungeon with an existing theme file (CandyDungeonTheme).  In this section, we'll create one ourselves
+In the previous section, we created a dungeon with an existing theme file.  In this section, we'll create one ourselves
 
 Create a Theme File
 -------------------
 
-Create a new theme file from either the Main menu or the Create menu
+Right click on the `Content Browser` and choose ``Dungeon Theme``
 
-.. figure:: /images/tutorial/02/create_theme_01.png
+.. image:: /images/tutorial/B/03.png
+   :align: center
+
+This will create the Dungeon Theme asset.  Double click it to open the Theme Editor
+
+.. image:: /images/tutorial/B/03A.png
    :align: center
    
-   Create from Main menu
-   
-.. figure:: /images/tutorial/02/create_theme_02.png
+.. image:: /images/tutorial/B/04.jpg
    :align: center
    
-   Create from Create menu
-  
-
-This will create a theme file in the current open directory in the Projects window
-
-.. figure:: /images/tutorial/02/03.png
-   :align: center
-   
-
-Open the Theme File
--------------------
-
-Double-click the theme file to open the **Theme Editor**.  Dock the theme editor so you can see both the Scene view and the Theme Editor at the same time
-
-.. figure:: /images/tutorial/02/04.jpg
-   :align: center
-   
-   
-Assign the Theme File
----------------------
-
-Destroy the existing dungeon by selecting ``DungeonGrid`` game object and click ``Destroy Dungeon`` button
-
-
-Assign the theme file that you just created, on to the DungeonGrid game object
-
-.. figure:: /images/tutorial/02/05.png
-   :align: center
-   
-
-Click ``Build Dungeon`` and nothing should appear.   That's because we haven't added prefab mappings on the theme yet
-
-
 
 Design the Theme
 ----------------
 
-Navigate to ``Assets\DungeonArchitect_Samples\Demo_Theme_Candy\Prefabs``.  This folder contains a set of mesh prefabs we can use for our dungeon
+Use Sample Assets
+^^^^^^^^^^^^^^^^^
 
-.. figure:: /images/tutorial/02/06.jpg
+In the `Content Browser`, enable plugin contents so we can use sample meshes that come with the plugin to design our theme
+
+Click ``View Options`` button and make sure ``Show Plugin Content`` is selected
+
+.. image:: /images/tutorial/B/05.png
    :align: center
+   
+.. image:: /images/tutorial/B/06.png
+   :align: center
+   
+
+Navigate to ``Dungeon Architect Content > Samples > DA_Candy > Meshes``.  This folder contains a set of meshes we can use for our dungeon
+
+
+.. image:: /images/tutorial/B/07.jpg
+   :align: center
+
    
 Add Ground
 ^^^^^^^^^^
 
-Drag-drop the ground prefab mesh on to the Theme Editor
+Drag-drop the ground mesh on to the Theme Editor
 
-.. figure:: /images/tutorial/02/07.jpg
+.. image:: /images/tutorial/B/08.jpg
    :align: center
+
    
+Link up the mesh node with the ``Ground`` marker node.  When you do, you should see a live preview on theme editor's Preview Viewport window
 
-Link up the mesh node with the ``Ground`` marker node.  When you do, you should see a live preview on the scene view with the dungeon using this ground mesh
-
-.. figure:: /images/tutorial/02/08.jpg
-   :align: center
-   
-For the live preview to work, make sure the "Realtime Update" button is enabled in the Theme Editor
-
-.. figure:: /images/tutorial/02/09.jpg
+.. image:: /images/tutorial/B/09.jpg
    :align: center
 
-Another criteria for the live preview to work is that a dungeon in the scene should reference the theme that is currently being edited in the theme editor
-
-Add More Prefabs
-^^^^^^^^^^^^^^^^
-
-Go ahead and add prefabs under the following markers: **Wall**, **Fence** and **Door**
-
-.. figure:: /images/tutorial/02/10.jpg
+.. image:: /images/tutorial/B/10.jpg
    :align: center
 
 
-.. figure:: /images/tutorial/02/11.jpg
+Add More Meshes
+^^^^^^^^^^^^^^^
+
+Go ahead and add more meshes under the following markers: **Wall**, **Fence** and **Door**
+
+.. image:: /images/tutorial/B/11.jpg
+   :align: center
+
+.. image:: /images/tutorial/B/12.jpg
    :align: center
 
 
 Add Wall Pillars
 ^^^^^^^^^^^^^^^^
 
-Drag drop the ``Pillar2`` prefab to the theme editor and link it to the ``WallSeparator`` marker node
+Drag drop the ``Pillar2`` mesh to the theme editor and link it to the ``WallSeparator`` marker node
 
-.. figure:: /images/tutorial/02/12.jpg
+.. image:: /images/tutorial/B/13.jpg
    :align: center
+
+.. image:: /images/tutorial/B/14.jpg
+   :align: center
+
 
 We'll need to make this pillar a bit bigger. Select the node you just dropped and modify the Scale parameter under Offset category
 
-.. figure:: /images/tutorial/02/13.jpg
+.. image:: /images/tutorial/B/15.jpg
    :align: center
+   
 
-.. figure:: /images/tutorial/02/14.jpg
+The live preview should update automatically to show the new scaled pillars
+
+.. image:: /images/tutorial/B/16.jpg
    :align: center
 
 
@@ -119,20 +110,26 @@ Add Windows
 ^^^^^^^^^^^
 We have two wall meshes in the samples folder
 
-.. figure:: /images/tutorial/02/15.jpg
-   :align: center
-
-The other one (``Wall2``) has a window. Lets configure the theme to sometimes use this second mesh so we have windows
-
-Drag drop ``Wall2`` prefab on to the theme editor and place it **before** (left of) the existing wall prefab node
-
-.. figure:: /images/tutorial/02/16.jpg
+.. image:: /images/tutorial/B/17.jpg
    :align: center
 
 
-When you connect this to the ``Wall`` marker node, you'll notice it has picked up the window node for all the walls
+The other one (``Wall2``) has a window. Lets configure the theme to sometimes use this second mesh, so we can have some windows
 
-.. figure:: /images/tutorial/02/17.jpg
+Drag drop ``Wall2`` mesh on to the theme editor and place it **before** (left of) the existing wall mesh node
+
+.. image:: /images/tutorial/B/18A.jpg
+   :align: center
+
+Link them up. The execution index should get updated, indicating their execution order
+
+.. image:: /images/tutorial/B/19.jpg
+   :align: center
+
+
+Notice that the first node has been picked up and all the walls have been replaced with the windowed version
+
+.. image:: /images/tutorial/B/20.jpg
    :align: center
 
 
@@ -142,131 +139,139 @@ There are multiple ways you can control this condition, the simplest being adjus
 
 Select the node you just dropped and change the probability to ``0.5`` (this would mean it gets selected 50% of the time).  The other 50% of the time, it would not be selected and the execution would then move to the next node, and hence selecting the non-windowed wall node
 
-.. figure:: /images/tutorial/02/18.png
-   :align: center
 
-.. figure:: /images/tutorial/02/19.jpg
+.. image:: /images/tutorial/B/21.jpg
    :align: center
    
-   Half the walls have windows
+.. figure:: /images/tutorial/B/22.jpg
+   :align: center
+   
+   Half the walls now have windows
 
 
 Add Wall Decorations
 ^^^^^^^^^^^^^^^^^^^^
 
-There's a photo frame prefab we'd like to attach to every wall
+There's a photo frame mesh we'd like to attach to every wall.  Drag drop this mesh to the theme editor **before** the two existing wall nodes and link it to the ``Wall`` marker node
 
-.. figure:: /images/tutorial/02/20.jpg
+.. image:: /images/tutorial/B/23.jpg
    :align: center
    
-Drag drop this prefab to the theme editor **before** the two existing nodes and link it to the ``Wall`` marker node
-
-.. figure:: /images/tutorial/02/21.jpg
-   :align: center
-
 
 This will cause all the walls to disappear and be replaced with this photo frame
 
-.. figure:: /images/tutorial/02/22.jpg
+.. image:: /images/tutorial/B/24.jpg
    :align: center
-
-This is because once the photo frame was selected, the execution stopped and the the wall nodes further down the line were not executed.    
+   
+This is because once the photo frame node was selected, the execution stopped there and the wall nodes further down the line were not executed.    
 
 Selected the photo frame and uncheck the flag "Consume on Attach".  This will cause the execution to continue further even though this node was selected by the theming engine
 
 
-.. figure:: /images/tutorial/02/23.jpg
+.. image:: /images/tutorial/B/25.png
+   :align: center
+   
+.. image:: /images/tutorial/B/26.jpg
    :align: center
    
 
 Lets adjust the offset of the photo frame (position and rotation) to make it properly align with the inner walls
 
-Select the photo frame node and change the position to ``(0, 2, -0.22)`` and rotation to ``(0, 180, 0)``
+Select the photo frame node and change the Offset's **Position** to ``(0, -22, 200)`` and **Rotation** to ``(0, 0, 180)``
 
-.. figure:: /images/tutorial/02/24.png
+.. image:: /images/tutorial/B/27.png
    :align: center
    
 
-The photo frame is aligned with the walls
+The photo frame is aligned now with the walls correctly
 
-.. figure:: /images/tutorial/02/25.jpg
+.. image:: /images/tutorial/B/28.jpg
    :align: center
-
+   
 
 Marker Emitters
 ^^^^^^^^^^^^^^^
 
 We have an issue with the photo frames. They also spawn near windows
 
-.. figure:: /images/tutorial/02/26.jpg
+.. image:: /images/tutorial/B/29.jpg
    :align: center
+   
 
 
-``Marker Emitters`` allow you to emit marker names from any of your dropped prefab nodes.  This means, we can define a new marker node (e.g. ``MyWallDeco``) and then emit that marker from the wall node that doesn't have a window (``Wall1`` prefab).  All our wall decorations can now go under this ``MyWallDeco`` marker and it will show up only near solid walls
+``Marker Emitters`` allow you to emit marker names from any of your dropped mesh nodes.  This means, we can define a new marker node (e.g. ``MyWallDeco``) and then emit that marker from the wall node that doesn't have a window (``Wall1`` mesh).  All our wall decorations can now go under this ``MyWallDeco`` marker and it will show up only near solid walls
 
 
 Right click on an empty area in the theme editor and select ``Add Marker Node``
 
-.. figure:: /images/tutorial/02/27.png
+.. image:: /images/tutorial/B/30.png
    :align: center
+   
 
+Select the newly created marker node and change its name to ``MyWallDeco``
 
-Select the node and change its name to ``MyWallDeco``
-
-
-.. figure:: /images/tutorial/02/28.png
+.. image:: /images/tutorial/B/31.png
    :align: center
-
+   
 
 Break the link to the photo frame
 
-.. figure:: /images/tutorial/02/29.png
+.. image:: /images/tutorial/B/32.png
    :align: center
-
+   
 
 Connect this under ``MyWallDeco`` marker node.  All the future wall decorations can also go under this marker
 
-.. figure:: /images/tutorial/02/30.png
+.. image:: /images/tutorial/B/33.jpg
    :align: center
-
-
+   
+   
 Now emit this marker from the wall node that doesn't contain a window
 
-Drag a link out of the bottom of the solid wall prefab node and release the mouse in an empty area
+Drag a link out of the bottom of the solid wall mesh node and release the mouse in an empty area
 
+.. image:: /images/tutorial/B/34.jpg
+   :align: center
+   
+Expand the category ``Marker Emitter``  in the context menu and select ``MyWallDeco``
 
-.. figure:: /images/tutorial/02/31.png
+.. image:: /images/tutorial/B/35.jpg
    :align: center
 
 
-.. figure:: /images/tutorial/02/32.png
+.. image:: /images/tutorial/B/36.jpg
+   :align: center
+
+
+This will cause the marker named ``MyWallDeco`` to be emitted in the scene whenever the solid wall node is selected, in which case it would then process the nodes defined under it.    Now our decorations don't show up near windows
+
+.. image:: /images/tutorial/B/37.jpg
    :align: center
 
 
 You can follow the same method to create another type of decoration (e.g. MyWindowDeco) and emit it from under the windowed wall node. In this example, I've added a flower pot in the windows
 
-.. figure:: /images/tutorial/02/33.jpg
+.. image:: /images/tutorial/B/38.jpg
+   :align: center
+   
+.. image:: /images/tutorial/B/39.jpg
    :align: center
 
 Align with Offset
 ^^^^^^^^^^^^^^^^^
 
-Dungeon Architect can adapt to any modular asset regardless of the prefab pivot position.  If the pivots are off, you can always adjust them from the Offset section of the node's properties
+Dungeon Architect can adapt to any modular asset regardless of the mesh pivot position.  If the pivots are off, you can always adjust them from the Offset section of the node's properties
 
 Sometimes, it is difficult to line up the ground node, as there is no point of reference to compare with. 
 
 In that case, turn on Debug Draw and build the dungeon. 
 
-.. figure:: /images/tutorial/02/34.png
+.. image:: /images/tutorial/B/40.jpg
    :align: center
 
+This is a different ground mesh that has its pivot on the corner instead of the center.   We'll add an offset of position ``(-200, 0, -200)`` to fix it and align with the debug drawn boundaries
 
-.. figure:: /images/tutorial/02/35.jpg
-   :align: center
-
-This ground asset has its pivot on the corner instead of the center.   We'll add an offset of position ``(-2, 0, -2)`` to fix it and align with the debug drawn boundaries
-
-.. figure:: /images/tutorial/02/36.jpg
+.. image:: /images/tutorial/B/41.jpg
    :align: center
 
 

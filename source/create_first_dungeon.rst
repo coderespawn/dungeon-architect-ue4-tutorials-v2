@@ -23,13 +23,31 @@ Assign Theme
 
 A theme file defines the assets to use to build the dungeon.  Assign an existing theme to the dungeon actor
 
- * Select the dungeon actor and inspect the Details panel
- * Add a new Theme entry by clicking the plus icon.  Search for ``candy`` and select the candy theme
+Select the dungeon actor and inspect the Details panel
+
+Add a new Theme entry by clicking the plus icon.
  
 .. image:: /images/tutorial/A/03.png
    :align: center
    
+
+Enable ``Show Plugin Content`` from the **View Options** so we can see our sample theme
+
+.. image:: /images/tutorial/A/04A1.png
+   :align: center
+   
+.. image:: /images/tutorial/A/04A2.png
+   :align: center
+   
+.. image:: /images/tutorial/A/04A3.png
+   :align: center
+
+Search for ``candy`` and select the candy theme
+
 .. image:: /images/tutorial/A/04.png
+   :align: center
+
+.. image:: /images/tutorial/A/04A4.png
    :align: center
 
 
@@ -60,7 +78,7 @@ Randomize Dungeon
 .. image:: /images/tutorial/A/08.jpg
    :align: center
 
-The ``Randomize Seed`` is a helper function which simply changes the ``Seed`` value in the dungeon configuration.  Changing the ``Seed`` value changes the layout of the dungeon.    If you assign a random value to a seed and build, you'll get a new dungeon layout
+The ``Randomize Seed`` button is a helper function which simply changes the ``Seed`` value in the dungeon configuration.  Changing the ``Seed`` value changes the layout of the dungeon.    If you assign a random value to a seed and build, you'll get a new dungeon layout
 
 .. image:: /images/tutorial/A/09.png
    :align: center

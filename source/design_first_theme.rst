@@ -36,6 +36,9 @@ Use Sample Assets
 
 In the `Content Browser`, enable plugin contents so we can use sample meshes that come with the plugin to design our theme
 
+.. note::
+	You can use any asset you like, but for this tutorial, lets stick with the sample assets
+
 Click ``View Options`` button and make sure ``Show Plugin Content`` is selected
 
 .. image:: /images/tutorial/B/05.png

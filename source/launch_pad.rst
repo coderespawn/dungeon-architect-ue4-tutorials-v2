@@ -1,33 +1,64 @@
 Launch Pad Window
 =================
 
-Use the Launch Pad window to setup new dungeon scenes, browse the samples, clone from templates and much more
+Use the Launch Pad window to setup new dungeon levels, browse the samples, clone from templates and much more
 
 Open Launch Pad
 ---------------
 
-From the Main menu, open the Launch Pad window ``Dungeon Architect > Launch Pad``
+Click the ``DA`` button from the main toolbar. This will open the `Launch Pad` window
 
-.. figure:: /images/tutorial/03/03.png
+With the Launch Pad, you can do the following:
+
+* Browse the various samples scenes
+* Create new scenes with preconfigured builder templates
+* Clone Flow Graphs from existing templates
+* Clone Theme files from existing templates
+* Access the various documentation and support channels
+
+.. figure:: /images/tutorial/C/01.png
    :align: center
+   
+   Tool button to open Lauch Pad window
+
+
+.. figure:: /images/tutorial/C/02.jpg
+   :align: center
+   
+   Lauch Pad window
 
 
 Navigation
 ----------
 
-Select the various sections from the left.
+Select the various sections from the left.   
 
-.. figure:: /images/tutorial/03/04.jpg
+.. image:: /images/tutorial/C/03.png
    :align: center
-   
 
 Use the navigation bar on the top to go back to a previous page. This is useful for retaining the scroll positions of the previous page (especially for larger pages like the Samples section)
 
 
-.. figure:: /images/tutorial/03/05.jpg
+.. figure:: /images/tutorial/C/04.jpg
    :align: center
    
    Navigation bar
+
+
+Samples
+-------
+
+.. figure:: /images/tutorial/03/07.jpg
+   :align: center
+
+There are tons of samples to explore.  Select a sample you like and perform one of the following actions
+
+* **Clone Scene**: Clone this scene and all the relevant assets (referenced themes, flow graphs etc) into the selected directory.   This lets you freely explore and modify the cloned sample map
+* **Video**: Watch a video, if it exists
+
+.. figure:: /images/tutorial/03/08.jpg
+   :align: center
+
 
 
 Builder Templates
@@ -58,24 +89,6 @@ Choose a folder to saved your scene file.  Once saved, the launcher would do the
 * Open the new scene
 * Open any theme editor windows associated with the referenced assets (Theme Editor, Flow Graph Editors etc)
 * Select the dungeon game object (so you see the properties in the inspector by default)
-
-
-
-Samples
--------
-
-.. figure:: /images/tutorial/03/07.jpg
-   :align: center
-
-There are tons of samples to explore.  Select a sample you like and perform one of the following actions
-
-* **Open Scene**: Opens the sample scene (usually under DungeonArchitect_Samples folder)
-* **Open Folder**: Opens the folder containing the scene
-* **Clone Scene**: Clone a scene and also clone over the referenced assets (themes, flow graphs etc) so you can modify them without affecting the sample scene
-* **Watch Demo**: Watch a video, if it exists
-
-.. figure:: /images/tutorial/03/08.jpg
-   :align: center
 
 
 Flow Graph Templates

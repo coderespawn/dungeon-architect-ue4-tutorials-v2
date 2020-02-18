@@ -28,11 +28,8 @@ This will create the Dungeon Theme asset.  Double click it to open the Theme Edi
    :align: center
    
 
-Design the Theme
-----------------
-
 Use Sample Assets
-^^^^^^^^^^^^^^^^^
+-----------------
 
 In the `Content Browser`, enable plugin contents so we can use sample meshes that come with the plugin to design our theme
 
@@ -55,8 +52,8 @@ Navigate to ``Dungeon Architect Content > Samples > DA_Candy > Meshes``.  This f
    :align: center
 
    
-Add Ground
-^^^^^^^^^^
+Add Ground Mesh
+---------------
 
 Drag-drop the ground mesh on to the Theme Editor
 
@@ -74,7 +71,7 @@ Link up the mesh node with the ``Ground`` marker node.  When you do, you should 
 
 
 Add More Meshes
-^^^^^^^^^^^^^^^
+---------------
 
 Go ahead and add more meshes under the following markers: **Wall**, **Fence** and **Door**
 
@@ -86,7 +83,7 @@ Go ahead and add more meshes under the following markers: **Wall**, **Fence** an
 
 
 Add Wall Pillars
-^^^^^^^^^^^^^^^^
+----------------
 
 Drag drop the ``Pillar2`` mesh to the theme editor and link it to the ``WallSeparator`` marker node
 
@@ -110,7 +107,8 @@ The live preview should update automatically to show the new scaled pillars
 
 
 Add Windows
-^^^^^^^^^^^
+-----------
+
 We have two wall meshes in the samples folder
 
 .. image:: /images/tutorial/B/17.jpg
@@ -153,7 +151,7 @@ Select the node you just dropped and change the probability to ``0.5`` (this wou
 
 
 Add Wall Decorations
-^^^^^^^^^^^^^^^^^^^^
+--------------------
 
 There's a photo frame mesh we'd like to attach to every wall.  Drag drop this mesh to the theme editor **before** the two existing wall nodes and link it to the ``Wall`` marker node
 
@@ -193,7 +191,7 @@ The photo frame is aligned now with the walls correctly
    
 
 Marker Emitters
-^^^^^^^^^^^^^^^
+---------------
 
 We have an issue with the photo frames. They also spawn near windows
 
@@ -261,7 +259,7 @@ You can follow the same method to create another type of decoration (e.g. MyWind
    :align: center
 
 Align with Offset
-^^^^^^^^^^^^^^^^^
+-----------------
 
 Dungeon Architect can adapt to any modular asset regardless of the mesh pivot position.  If the pivots are off, you can always adjust them from the Offset section of the node's properties
 
@@ -281,7 +279,7 @@ This is a different ground mesh that has its pivot on the corner instead of the 
 It is important to first align the ground mesh and then use that as a reference to align your walls and fences.  If the ground is not aligned correctly, the rest will also not align (since you will be using an incorrect point of reference for aligning the rest)
 
 Recap
-^^^^^
+-----
 In this section we learnt the following:
 
 * *Probablity* - Controls the percentage chance of a node being selected.  A value of 1 means 100% selection chance. A value of 0.25 means 25% selection chance

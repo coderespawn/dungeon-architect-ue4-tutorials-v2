@@ -76,7 +76,7 @@ Select the Dungeon actor and click `Build Dungeon` button from the Details panel
 .. figure:: /images/tutorial/E/09.jpg
    :align: center
    
-   GridFlow dungeon built using the Prehistoric theme
+   GridFlow dungeon built using the sample theme
 
 .. figure:: /images/tutorial/E/08.jpg
    :align: center
@@ -231,70 +231,67 @@ Create a new node ``Layout Graph > Create Math Path``
 Unlink the ``Create Grid`` node from the ``Result`` node (do this by pressing Alt+LeftClick on the Create Grid Node's border)
 
 
-.. figure:: /images/tutorial/04/24.png
+Click the Build button. A main path would have been created in the grid
+
+.. image:: /images/tutorial/E/23.png
    :align: center
 
 
-Link the nodes up like below and hit Play
+Keep hitting the `Build` button for different result
 
-.. figure:: /images/tutorial/04/25.png
+.. image:: /images/tutorial/E/24.gif
    :align: center
 
-
-This node creates a main path in the grid.  Keep hitting the play button for different result
-
-.. figure:: /images/tutorial/04/26.gif
-   :align: center
    
 .. note::
-   If you do not see random results when you hit play, make sure randomize is enabled.  Enable this by clicking on an empty area in the Execution Graph to show the properties. In the inspector, select ``Randomize Seed``
+   If you do not see random results when you hit `Build`, make sure randomize is enabled.  Enable this by clicking the `Settings` button on the toolbar and choosing `Editor Settings`.  Then enabled `Randomize Seed`
 
 
 Select the ``Create Main Path`` node and inspect the properties
 
-.. figure:: /images/tutorial/04/27.png
+.. image:: /images/tutorial/E/25.png
    :align: center
 
 We'll leave everything to default for now
 
 Notice the `Path Name` parameter is set to ``main``   This is the name of the path and we will be referencing this path in the future nodes with this name
 
-You can adjust the size of the path.   ``Start Marker Name`` and ``Goal Marker Name`` lets you specify a name for the markers. You can then create these markers in the theme file and add any object you like.    In the `Prehistoric` theme, there's a marker already created with these names and a player controller is placed under ``SpawnPoint`` marker and a level goal handler prefab is placed under ``LevelGoal`` marker
+You can adjust the size of the path.   ``Start Marker Name`` and ``Goal Marker Name`` lets you specify a name for the markers. You can then create these markers in the theme file and add any object you like.    In the sample theme, there's a marker already created with these names and a Player Start is placed under ``SpawnPoint`` marker and a level goal handler prefab is placed under ``LevelGoal`` marker
 
-.. figure:: /images/tutorial/04/28.jpg
+.. image:: /images/tutorial/E/26.png
    :align: center
 
 
 Create Alternate Path
 ^^^^^^^^^^^^^^^^^^^^^
 
-We'll next create an alternate path pathing off the main path so the player has another way of reaching the goal
+We'll next create an alternate path branching off the main path so the player has another way of reaching the goal
 
 Create a new node ``Layout Graph > Create Path``
 
-.. figure:: /images/tutorial/04/menu/L_CreatePath.png
+.. image:: /images/tutorial/E/27.png
    :align: center
 
 Connect the nodes together like below
 
-.. figure:: /images/tutorial/04/29.png
+.. image:: /images/tutorial/E/28.png
    :align: center
 
-Leave all the properties as default and hit play
+Leave all the properties as default and hit `Build`
 
-.. figure:: /images/tutorial/04/30.png
+.. image:: /images/tutorial/E/29.png
    :align: center
 
 
 Select the ``Create Path`` node and inspect the properties
 
-.. figure:: /images/tutorial/04/31.png
+.. image:: /images/tutorial/E/30.png
    :align: center
 
 
-Change the `Path Name` from ``path`` to ``alt``.  We will be referencing this path as ``alt`` in the future
+Change the `Path Name` from ``branch`` to ``alt``.  We will be referencing this path as ``alt`` in the future
 
-.. figure:: /images/tutorial/04/32.png
+.. image:: /images/tutorial/E/31.png
    :align: center
 
 
@@ -304,13 +301,13 @@ The `End On Path` is left empty, so the end of this path doesn't connect back to
 
 Set the `End On Path` parameter to ``main``
 
-.. figure:: /images/tutorial/04/33.png
+.. image:: /images/tutorial/E/32.png
    :align: center
 
 
 ======================= =======================
 **Min Path Size**       3
-**Max Path Size**       3
+**Max Path Size**       5
 **Path Name**           alt
 **Node Color**          orange
 **Start From Path**     main
@@ -319,13 +316,22 @@ Set the `End On Path` parameter to ``main``
 
 This will make the alternate path (orange) connect back to the main path (green)
 
-.. figure:: /images/tutorial/04/34.png
+.. image:: /images/tutorial/E/34.png
    :align: center
 
 
-Keep hitting Play for different results
+Keep hitting Build for different results
 
-.. figure:: /images/tutorial/04/35.gif
+.. image:: /images/tutorial/E/33.gif
+   :align: center
+
+
+Assign a description to the node.  Select the `Create Path` node and set the description property to ``Alternate Path``
+
+.. image:: /images/tutorial/E/32A.png
+   :align: center
+
+.. image:: /images/tutorial/E/32B.png
    :align: center
 
 
@@ -336,10 +342,7 @@ We'll add a treasure room connected to the main path
 
 Add a new node ``Layout Graph > Create Path`` and set it up as follows:
 
-.. figure:: /images/tutorial/04/37.png
-   :align: center
-
-.. figure:: /images/tutorial/04/36.png
+.. image:: /images/tutorial/E/35.png
    :align: center
 
 ======================= =======================
@@ -351,7 +354,7 @@ Add a new node ``Layout Graph > Create Path`` and set it up as follows:
 **End On Path**         main
 ======================= =======================
 
-.. figure:: /images/tutorial/04/38.png
+.. image:: /images/tutorial/E/36.png
    :align: center
 
 
@@ -362,10 +365,10 @@ We'll add another treasure room connected to the ``alt`` path but keep the ``End
 
 Add a new node ``Layout Graph > Create Path`` and set it up as follows:
 
-.. figure:: /images/tutorial/04/39.png
+.. image:: /images/tutorial/E/37.png
    :align: center
 
-.. figure:: /images/tutorial/04/40.png
+.. image:: /images/tutorial/E/38.png
    :align: center
 
 ======================= =======================
@@ -377,7 +380,7 @@ Add a new node ``Layout Graph > Create Path`` and set it up as follows:
 **End On Path**         
 ======================= =======================
 
-.. figure:: /images/tutorial/04/41.png
+.. image:: /images/tutorial/E/39.png
    :align: center
 
 
@@ -389,10 +392,10 @@ We'll create a room connected to the main path which will act as the key room. W
 Add a new node ``Layout Graph > Create Path`` and set it up as follows:
 
 
-.. figure:: /images/tutorial/04/42.png
+.. image:: /images/tutorial/E/40.png
    :align: center
 
-.. figure:: /images/tutorial/04/43.png
+.. image:: /images/tutorial/E/41.png
    :align: center
 
 ======================= =======================
@@ -404,7 +407,7 @@ Add a new node ``Layout Graph > Create Path`` and set it up as follows:
 **End On Path**         
 ======================= =======================
 
-.. figure:: /images/tutorial/04/44.png
+.. image:: /images/tutorial/E/42.png
    :align: center
 
 .. note:: We've named this path ``key_room``. It will be referenced later on when creating the key locks
@@ -418,33 +421,33 @@ We'll next create a key-lock system on the main path.  Our key will go on the Ke
 
 Add a new node ``Layout Graph > Create Key Lock`` and set it up as follows:
 
-.. figure:: /images/tutorial/04/menu/L_CreateKeyLock.png
+.. image:: /images/tutorial/E/43.png
    :align: center
    
-.. figure:: /images/tutorial/04/45.png
+.. image:: /images/tutorial/E/44.png
    :align: center
 
-.. figure:: /images/tutorial/04/46.png
+.. image:: /images/tutorial/E/46.png
    :align: center
 
 ======================= =======================
 **Key Branch**          key_room
 **Lock Branch**         main
-**Key Marker Name**     KeyMain
-**Lock Marker Name**    LockMain
+**Key Marker Name**     KeyRed
+**Lock Marker Name**    LockRed
 ======================= =======================
 
-.. figure:: /images/tutorial/04/47.png
+.. image:: /images/tutorial/E/45.png
    :align: center
 
 
 Specify the `Key Branch` as ``key_room`` and `Lock Branch` as ``main``
 
-Set marker name for the key as ``KeyMain`` and lock as ``LockMain``.    Then in the theme file, you'd create marker nodes with these names and add your key and locked gate prefabs.   
+Set marker name for the key as ``KeyRed`` and lock as ``LockRed``.    Then in the theme file, you'd create marker nodes with these names and add your key and locked gate prefabs.   
 
-The prehistoric theme already has these setup
+The sample theme already has these setup
 
-.. figure:: /images/tutorial/04/48.png
+.. image:: /images/tutorial/E/KeyRed.png
    :align: center
    
 
@@ -456,29 +459,29 @@ We need a key-lock to guard the treasure room in the main branch
 Add a new node ``Layout Graph > Create Key Lock`` and set it up as follows:
 
 
-.. figure:: /images/tutorial/04/49.png
+.. image:: /images/tutorial/E/47.png
    :align: center
 
-.. figure:: /images/tutorial/04/50.png
+.. image:: /images/tutorial/E/48.png
    :align: center
 
 ======================= =======================
 **Key Branch**          main
 **Lock Branch**         treasure_main
-**Key Marker Name**     KeyTreasure
-**Lock Marker Name**    LockTreasure
+**Key Marker Name**     KeyYellow
+**Lock Marker Name**    LockYellow
 ======================= =======================
 
 
-.. figure:: /images/tutorial/04/51.png
+.. image:: /images/tutorial/E/49.png
    :align: center
 
 
-Set marker name for the key as ``KeyTreasure`` and lock as ``LockTreasure``.    Then in the theme file, you'd create marker nodes with these names and add your key and locked gate prefabs.   
+Set marker name for the key as ``KeyYellow`` and lock as ``LockYellow``.    Then in the theme file, you'd create marker nodes with these names and add your key and locked gate prefabs.   
 
-The prehistoric theme already has these setup
+The sample theme already has these setup
 
-.. figure:: /images/tutorial/04/52.png
+.. image:: /images/tutorial/E/KeyYellow.png
    :align: center
    
    
@@ -490,14 +493,12 @@ We'll use the ``Spawn Items`` node to spawn enemies on the ``main`` and ``alt`` 
 Create a new node ``Layout Graph > Spawn Items`` and set it up as follows:
 
 
-.. figure:: /images/tutorial/04/menu/L_SpawnItems.png
+.. image:: /images/tutorial/E/50.png
    :align: center
    
-.. figure:: /images/tutorial/04/53.png
+.. image:: /images/tutorial/E/52.png
    :align: center
-
-.. figure:: /images/tutorial/04/54.png
-   :align: center
+   
 
 ======================= =======================
 **Paths**               main, alt
@@ -507,21 +508,21 @@ Create a new node ``Layout Graph > Spawn Items`` and set it up as follows:
 **Max Count**           5
 ======================= =======================
 
-.. figure:: /images/tutorial/04/55.png
+.. image:: /images/tutorial/E/51.png
+   :align: center
+
+.. image:: /images/tutorial/E/53.png
    :align: center
 
 
 This will spawn enemies in the nodes, gradually increasing the number of enemies based on the difficulty. The difficulty increases as we get closer to the goal. You can control this from the `Spawn Method` properties. Leave it to default for now
 
 
-We've specified the marker name as ``Grunt`` and an appropriate marker node should be created in the theme file so we can spawn prefabs under it.  The pre-historic theme already has this marker
+We've specified the marker name as ``Grunt`` and an appropriate marker node should be created in the theme file so we can spawn prefabs under it.  The sample theme already has this marker
 
-
-.. figure:: /images/tutorial/04/56.png
+.. image:: /images/tutorial/E/54.png
    :align: center
 
-
-You can control the placement of items (in the tilemap) from the `Placement Method` property section. Leave it to default for now
 
 Spawn Bonus (Treasure Chests)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

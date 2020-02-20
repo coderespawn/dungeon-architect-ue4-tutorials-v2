@@ -191,48 +191,44 @@ Create Grid
 
 Right click on an empty area in the Execution Graph and from the context menu select ``Layout Graph > Create Grid``
 
-.. figure:: /images/tutorial/04/menu/L_CreateGrid.png
+.. image:: /images/tutorial/E/19.png
    :align: center
 
 
-.. figure:: /images/tutorial/04/21.png
+
+Connect this node to the ``Result`` node and click the ``Build`` button in the toolbar
+
+
+.. image:: /images/tutorial/E/20.png
    :align: center
    
 
-Connect this node to the ``Result`` node and hit play 
-
-
-   
-.. figure:: /images/tutorial/04/22.png
+.. image:: /images/tutorial/E/11.png
    :align: center
-
    
-.. figure:: /images/tutorial/04/11.png
-   :align: center
    
 
 This node creates an initial grid to work with 
 
-.. figure:: /images/tutorial/04/23.png
+.. image:: /images/tutorial/E/21.png
    :align: center
 
 
-In this builder, you first design your level in an abstract layout graph like this and then move the final result to a tilemap
+We'll be designing our layout in this grid.   This allows us to work on a higher level abstract graph, making it easier to control the flow.   It will then be transferred over to a tilemap
 
 
 Create Main Path
 ^^^^^^^^^^^^^^^^
 
-We'll next create a main path within this grid. The main path has a spawn point and goal
+Next, we'll create a main path within this grid. The main path has a spawn point and a goal
 
 Create a new node ``Layout Graph > Create Math Path``
 
-.. figure:: /images/tutorial/04/menu/L_CreateMainPath.png
+.. image:: /images/tutorial/E/22.png
    :align: center
-   
 
 
-Unlink the ``Create Grid`` node from the ``Result`` node (do this by right clicking on the node's orange border)
+Unlink the ``Create Grid`` node from the ``Result`` node (do this by pressing Alt+LeftClick on the Create Grid Node's border)
 
 
 .. figure:: /images/tutorial/04/24.png

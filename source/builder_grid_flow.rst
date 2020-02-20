@@ -7,53 +7,49 @@ The Grid Flow Builder offers a rich set of tools to control the flow of your dun
 Create a Grid Flow Dungeon
 --------------------------
 
-Setup Dungeon Prefab
-^^^^^^^^^^^^^^^^^^^^
-
-Create a new scene.  Navigate to ``Assets/DungeonArchitect/Prefabs`` and drop in the DungeonGridFlow prefab on to the scene
-
-.. figure:: /images/tutorial/04/01.png
-   :align: center
-   
-
-Select the DungeonGridFlow game object you just dropped and reset the transform
-
-.. figure:: /images/tutorial/04/02.png
-   :align: center
-   
-
-Setup Parent Object
+Setup Dungeon Actor
 ^^^^^^^^^^^^^^^^^^^
 
-Create a new Parent object where all the spawned dungeon items will go in. 
+Create a new Level and drop in a dungeon actor
 
-.. figure:: /images/tutorial/04/03.png
+.. image:: /images/tutorial/A/02.jpg
    :align: center
    
-Reset the parent object's transform and set it to static
 
-.. figure:: /images/tutorial/04/04.png
+Inspect the properties of the dungeon actor you just dropped.   Set the `Builder Class` to ``GridFlowBuilder``
+
+.. image:: /images/tutorial/E/01.png
    :align: center
-
-
-Assign the parent object
-
-.. figure:: /images/tutorial/04/05.png
-   :align: center
-
-
-This makes sure all the spawned dungeon objects are placed under this parent object
-
+   
 
 Setup Theme
 ^^^^^^^^^^^
 
-There's a theme available in the samples folder which we'll use for this tutorial section
+Click the ``+`` icon next to the Themes array to create a new theme entry.  
 
-Navigate to ``Assets\DungeonArchitect_Samples\DemoBuilder_GridFlow\Theme`` and assign the theme ``ThemePrehistoric`` to the DungeonGridFlow game object
-
-.. figure:: /images/tutorial/04/06.png
+.. image:: /images/tutorial/E/02A.png
    :align: center
+
+Here we'll assign an existing theme from the samples folder.  For this, we'll need to enable `Show Plugin Content` from the view options
+
+.. image:: /images/tutorial/E/02B.png
+   :align: center
+
+.. image:: /images/tutorial/E/02C.png
+   :align: center
+
+
+We'll assign the theme ``T_DefaultGridFlow``.   
+
+.. image:: /images/tutorial/E/03.png
+   :align: center
+
+
+.. note::
+	The above theme theme file is under `Dungeon Architect Content > Builders > GridFlowContent > Theme` folder
+
+	.. image:: /images/tutorial/E/04.png
+	   :align: center
 
 
 Setup GridFlow Graph
@@ -61,153 +57,131 @@ Setup GridFlow Graph
 
 This builder requires another asset called the `Grid Flow Graph`.   This is a graph that helps you  control the flow of your dungeon. In this section, we'll use an existing graph from the samples folder
 
-Navigate to ``Assets\DungeonArchitect_Samples\DemoBuilder_GridFlow\FlowGraph`` and assign the graph ``DemoGridFlow`` to the `DungeonGridFlow` game object's ``Flow Asset`` property
+Select the Dungeon actor and in the `Grid Flow` setting assign the following asset ``DefaultGridFlow``.  This is in the folder `Dungeon Architect Content > Builders > GridFlowContent > FlowGraph`
 
-.. figure:: /images/tutorial/04/07.png
+.. image:: /images/tutorial/E/05.png
    :align: center
 
+.. image:: /images/tutorial/E/06.png
+   :align: center
 
+.. image:: /images/tutorial/E/07.png
+   :align: center
 
 Build Dungeon
 ^^^^^^^^^^^^^
 
-Select the ``DungeonGridFlow`` game object and click ``Build Dungeon`` button from the inspector window
+Select the Dungeon actor and click `Build Dungeon` button from the Details panel
 
-.. figure:: /images/tutorial/04/08.jpg
+.. figure:: /images/tutorial/E/09.jpg
    :align: center
    
    GridFlow dungeon built using the Prehistoric theme
 
-
-.. figure:: /images/tutorial/04/09.jpg
+.. figure:: /images/tutorial/E/08.jpg
    :align: center
    
    GridFlow dungeons support key-locks
    
 
-Open Grid Flow Editor
-^^^^^^^^^^^^^^^^^^^^^
+Grid Flow Editor
+----------------
 
 Let's open the GridFlow asset in the editor:
 
-Navigate to ``Assets\DungeonArchitect_Samples\DemoBuilder_GridFlow\FlowGraph`` and double click on ``DemoGridFlow``.   
+Navigate to ``Dungeon Architect Content > Builders > GridFlowContent > FlowGraph`` and double click on ``DefaultGridFlow``
 
-Dock the editor window so you see both the scene view and the grid flow editor
+This will open the `Grid Flow Editor`
 
-.. figure:: /images/tutorial/04/10.jpg
+.. figure:: /images/tutorial/E/10.jpg
    :align: center
    
-Click the Play button on the top left of the flow editor to build a new dungeon in the Grid Flow Editor
+   Grid Flow Editor
+   
+Click the Build button toolbar to build the graph
 
-.. figure:: /images/tutorial/04/11.png
+.. image:: /images/tutorial/E/11.png
    :align: center
 
-.. figure:: /images/tutorial/04/flow_editor_anim.gif
+.. image:: /images/tutorial/E/12.jpg
    :align: center
 
 
+Keep hitting build to get a new dungeon
 
-Link Editor with Dungeon
-^^^^^^^^^^^^^^^^^^^^^^^^
-
-We are going to link up the dungeon we have on the scene (`DungeonGridFlow` game object) with the Grid Flow Editor so when we generate a new dungeon in the editor, it syncs up the dungeon on the scene
-
-
-Click an empty space (grey area) in the Execution Graph
-
-.. figure:: /images/tutorial/04/12.png
+.. image:: /images/tutorial/E/13.gif
    :align: center
-   
-   Click anywhere in the empty area
-   
-   
-This will show up the execution graph properties in the Inspector window
 
-
-.. figure:: /images/tutorial/04/13.png
-   :align: center
-   
-   Execution Graph properties
-
-
-Assign the dungeon game object by dragging the DungeonGridFlow over
-
-.. figure:: /images/tutorial/04/14.jpg
-   :align: center
-   
-Now build the dungeon again by clicking the Play button in the Execution Graph Window
-
-.. figure:: /images/tutorial/04/11.png
-   :align: center
-   
-
-This will recreate the dungeon in the scene view.  The dungeon in the editor window is now synchronized with the dungeon in the scene view
-
-If you double click on any of the tiles in the Tilemap window,  the scene view should focus on that tile/item
-
-
-Double click on the Bonus Item (``B``) in the tilemap.  
-
-
-.. figure:: /images/tutorial/04/15.png
-   :align: center
-   
-The scene view should zoom in on the treasure chest
-
-.. figure:: /images/tutorial/04/16.jpg
-   :align: center
-   
 
 Explore Grid Flow Graph
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-After you've built a dungeon in the editor (by hitting the play button on the top left), you can select each node and see how the dungeon layout was built, as shown in the lower preview panels
+After you've built a dungeon in the editor (by hitting the `Build` button on the toolbar), you can select each node in the execution graph and see how the dungeon layout was built, as shown in the lower preview panels
 
-.. figure:: /images/tutorial/04/flow_editor_node_preview.gif
+.. figure:: /images/tutorial/E/15.gif
    :align: center
-   
-   Select a node to preview the build process
 
+   Select an execution graph node to preview the build process
+
+
+
+Editor Panels
+-------------
+
+The Grid Flow Editor has the following panels
+
+Execution Graph Panel
+^^^^^^^^^^^^^^^^^^^^^
+
+This is where you design the flow of your dungeon. All other panels are for previewing the result of this panel
+
+.. image:: /images/tutorial/E/14A.jpg
+   :align: center
+
+
+Layout Graph Panel
+^^^^^^^^^^^^^^^^^^
+
+The initial level is designed in a higher level layout graph
+
+.. image:: /images/tutorial/E/14B.jpg
+   :align: center
+
+
+Tilemap Panel
+^^^^^^^^^^^^^
+
+The result of the layout graph is eventually transferred over to a tilemap. The resulting tilemap is previewed here
+
+.. image:: /images/tutorial/E/14C.jpg
+   :align: center
+
+Preview Viewport Panel
+^^^^^^^^^^^^^^^^^^^^^^
+
+The 3D representation of the final Dungeon
+
+.. image:: /images/tutorial/E/14D.jpg
+   :align: center
 
 
 Design a GridFlow Graph
 -----------------------
 
-In the previous section, we used an existing Grid Flow graph. In this section, we'll design one ourselves.
+In the previous section, we used an existing Grid Flow graph from the samples folder. In this section, we'll design one ourselves.
 
 Setup
 ^^^^^
 
-Destroy the existing dungeon and clear out the Flow Asset that we assigned earlier
+Close the Grid Flow Editor, if open
 
+Right click on the `Content Browser` and choose Dungeon Architect > Grid Flow.  This will create a new Grid Flow asset. Rename it to something appropriate and double click to open it in the `Grid Flow Editor`
 
-.. figure:: /images/tutorial/04/17.png
+.. image:: /images/tutorial/E/18.png
    :align: center
-   
-   DungeonGridFlow game object properties
 
-
-Create a new Grid Flow asset from either the Create menu or the Main Menu
-
-.. figure:: /images/tutorial/04/18.png
+.. image:: /images/tutorial/E/17.jpg
    :align: center
-   
-   Create Menu
-
-
-.. figure:: /images/tutorial/04/19.png
-   :align: center
-   
-   Main Menu
-
-
-Rename to something appropriate and double click the grid flow asset to open it in the editor
-
-We won't be needing the scene view for some time.  Dock the editor so we have more working area
-
-.. figure:: /images/tutorial/04/20.png
-   :align: center
-   
 
 Notice that there is only one node in the Execution graph, the ``Result`` node.   Our final output should be connected to this node
 

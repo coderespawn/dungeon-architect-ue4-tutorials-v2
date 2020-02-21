@@ -995,7 +995,7 @@ Check the player controller on how to initialize the minimap and show it on the 
    :align: center
 
 
-Check the HUD widget on how to display this in the screen
+Check the HUD widget on how to display this in the screen 
 
 ``DungeonArchitect Content > Samples > DA_GridFlow_Game > UI > UI_GridFowDemo_HUD``
 

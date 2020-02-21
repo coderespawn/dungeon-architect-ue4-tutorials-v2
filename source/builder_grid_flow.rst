@@ -533,29 +533,26 @@ Spawn treasure chests in your bonus rooms using the `Spawn Items` node
 Create a new node ``Layout Graph > Spawn Items`` and set it up as follows:
 
 
-.. figure:: /images/tutorial/04/57.png
+.. image:: /images/tutorial/E/55.png
    :align: center
 
-.. figure:: /images/tutorial/04/58.png
+.. image:: /images/tutorial/E/56.png
    :align: center
 
 ========================= =======================
 **Paths**                 treasure_main, treasure_alt
-**Item Type**             Bonus
+**Item Type**             Treasure
 **Marker Name**           Treasure
 **Min Count**             1
 **Max Count**             1
 **Min Spawn Difficulty**  1
 ========================= =======================
 
-.. figure:: /images/tutorial/04/59.png
+.. image:: /images/tutorial/E/57.png
    :align: center
    
 
-We've specified the marker name as ``Treasure`` and an appropriate marker node should be created in the theme file so we can spawn prefabs the treasure chest under it.  The pre-historic theme already has this marker
-
-.. figure:: /images/tutorial/04/60.png
-   :align: center
+We've specified the marker name as ``Treasure`` and an appropriate marker node should be created in the theme file so we can spawn prefabs the treasure chest under it.  
    
 
 The `Min Spawn Difficulty` is set to ``1``.   The first node in the branch will have a difficulty of ``0`` and the last node ``1``.  Sometimes, the yellow branch may be 3 nodes long.  Since we want the chest to occur only on the last node, we've set this value to ``1``
@@ -569,10 +566,10 @@ Create a new node ``Layout Graph > Spawn Items`` and set it up as follows:
 
 
 
-.. figure:: /images/tutorial/04/61.png
+.. image:: /images/tutorial/E/58.png
    :align: center
 
-.. figure:: /images/tutorial/04/62.png
+.. image:: /images/tutorial/E/59.png
    :align: center
 
 ========================= =======================
@@ -583,10 +580,10 @@ Create a new node ``Layout Graph > Spawn Items`` and set it up as follows:
 **Max Count**             1
 ========================= =======================
 
-.. figure:: /images/tutorial/04/63.png
+.. image:: /images/tutorial/E/60.png
    :align: center
    
-You'll need to create a marker named ``KeyGuardian`` in the theme file and place your NPC prefab under it.   This marker doesn't exist in the `Prehistoric` theme and you'll need to create it yourself if you want to visualize it
+You'll need to create a marker named ``KeyGuardian`` in the theme file and place your NPC prefab under it.   This marker doesn't exist in the sample theme and you'll need to create it yourself if you want to visualize it
 
 
 Spawn Health Pack
@@ -600,10 +597,10 @@ Create a new node ``Layout Graph > Spawn Items`` and set it up as follows:
 
 
 
-.. figure:: /images/tutorial/04/64.png
+.. image:: /images/tutorial/E/61.png
    :align: center
 
-.. figure:: /images/tutorial/04/65.png
+.. image:: /images/tutorial/E/62.png
    :align: center
 
 ========================= =======================
@@ -612,21 +609,21 @@ Create a new node ``Layout Graph > Spawn Items`` and set it up as follows:
 **Marker Name**           HealthPickup
 **Min Count**             0
 **Max Count**             1
-**Spawn Probability**     0.5 
+**Spawn Method**          Random Range
+**Spawn Probability**     0.4 
 
 **Custom Item Info**
 -------------------------------------------------
->> **Item Type**          health_pickup
->> **Text**               Health
+>> **Preview Text**       H
 >> **Text Color**         [Red]
 >> **Background Color**   [White]
 ========================= =======================
 
-.. figure:: /images/tutorial/04/66.png
+.. image:: /images/tutorial/E/63.png
    :align: center
    
    
-.. note:: You'll need to create a marker named ``HealthPickup`` in your theme file and add your health pack prefab
+.. note:: You'll need to create a marker named ``HealthPickup`` in your theme file and add your health pack actor. The sample theme doesn't contain this
 
 
 
@@ -641,19 +638,19 @@ After we are done designing the layout graph, we'll need to finalize it with the
 
 Create a new node ``Layout Graph > Finalize Graph`` and set it up as follows:
 
-.. figure:: /images/tutorial/04/menu/L_Finalize.png
+.. image:: /images/tutorial/E/64.png
    :align: center
 
-.. figure:: /images/tutorial/04/67.png
+.. image:: /images/tutorial/E/65.png
    :align: center
 
 Leave all the properties to default
 
-.. figure:: /images/tutorial/04/68.png
+.. image:: /images/tutorial/E/67.png
    :align: center
 
 
-.. figure:: /images/tutorial/04/69.gif
+.. image:: /images/tutorial/E/66.gif
    :align: center
 
 
@@ -661,24 +658,24 @@ We are now ready to create a tilemap from this
 
 
 
-Initialize Tilemap
-^^^^^^^^^^^^^^^^^^
+Create Tilemap
+^^^^^^^^^^^^^^
 
 Create a new node ``Tilemap > Initialize Tilemap`` and set it up as follows:
 
-.. figure:: /images/tutorial/04/menu/T_Initialize.png
+.. image:: /images/tutorial/E/70.png
    :align: center
    
    
-.. figure:: /images/tutorial/04/70.png
+.. image:: /images/tutorial/E/68.png
    :align: center
 
 
-.. figure:: /images/tutorial/04/71.png
+.. image:: /images/tutorial/E/69.png
    :align: center
 
 
-.. figure:: /images/tutorial/04/72.png
+.. image:: /images/tutorial/E/71.png
    :align: center
 
 
@@ -688,32 +685,39 @@ The parameter `Tilemap Size Per Node` controls how many tiles are used to genera
 
 If you want a more uniform grid like look on your rooms, bring the `Perturb Amount` close to ``0``
 
-`Layout Padding` adds extra tiles around the dungeon layout.   Set to ``5`` so we can apply some decorations outside the dungeon bounds
-
 When you select a node on the layout graph, the tiles that belong to the node light up.  This is controlled by the `Color Settings` parameters
 
+
+`Layout Padding` adds extra tiles around the dungeon layout.   Set this value to ``5`` so we can apply some decorations outside the dungeon bounds
+
+
+.. image:: /images/tutorial/E/72.png
+   :align: center
+
+.. image:: /images/tutorial/E/73.gif
+   :align: center
 
 Add Background Elevation
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 We are going to create overlays and merge them with the original tilemap.   Create the following two nodes:
 
-* Create a node ``Tilemap > Create Tilemap Elevations``
+* Create a node ``Tilemap > Create Elevation``
 * Create a node ``Tilemap > Merge Tilemaps``
 
-.. figure:: /images/tutorial/04/menu/T_CreateElevation.png
+.. image:: /images/tutorial/E/74.png
    :align: center
    
-.. figure:: /images/tutorial/04/menu/T_Merge.png
+.. image:: /images/tutorial/E/75.png
    :align: center
 
 
 Link them up like below:
 
-.. figure:: /images/tutorial/04/73.png
+.. image:: /images/tutorial/E/76.png
    :align: center
    
-.. figure:: /images/tutorial/04/74.png
+.. figure:: /images/tutorial/E/77.png
    :align: center
    
    Create Tilemap Elevation properties
@@ -722,68 +726,111 @@ Update the properties
 
 ========================= =======================
 **Noise Frequency**       0.1
-**Num Steps**             8
-**Min Height**            0.5
-**Max Height**            3.5
+**Num Steps**             12
+**Min Height**            -10
+**Max Height**            10
 **Sea Level**             -1
+**Land Color**            Brown (HexLinear ``291A10FF``)
+**Sea Color**             Blue (HexLinear ``003C66FF``)
 ========================= =======================
 
 
-.. figure:: /images/tutorial/04/75.png
+.. figure:: /images/tutorial/E/78.png
    :align: center
    
    Create Tilemap Elevation Node Result
 
-
-We've specified the marker name as ``Rock``.   If you place objects under the specified marker node in the theme editor, they will show up on these tiles at the given height
-
-.. note:: The Min/Max height is logical and will be mulitplied by the dungeon config's Grid Size Y value.  If the GridSize is ``(4, 2, 4)`` in the DungeonGridFlow game object's config and the tile height happens to be ``2.5``, the actual placement will be on ``2.5 * 2 = 5``
-
-
-Add Tree Overlays
-^^^^^^^^^^^^^^^^^
-
-We'll overlay trees on our dungeon using a noise parameter. These overlays will be placed such that they will not block the main path
-
-Create a node ``Tilemap > Create Tilemap Overlay``
-
-.. figure:: /images/tutorial/04/menu/T_CreateOverlay.png
-   :align: center
-
-
-.. figure:: /images/tutorial/04/76.png
+.. figure:: /images/tutorial/E/78B.png
    :align: center
    
-   Create Tilemap Overlay Node Connection
+   Merged Result
    
-.. figure:: /images/tutorial/04/77.png
+.. figure:: /images/tutorial/E/79.jpg
    :align: center
    
-   Create Tilemap Overlay Node properties
+   Dungeon Preview
+
+
+We've specified the marker name as ``Elevation``.   If you place objects under the specified marker node in the theme editor, they will show up on these tiles at the given height.
+
+.. note:: The Min/Max height is logical and will be mulitplied by the dungeon config's Grid Size Y value.  If the GridSize is ``(400, 200, 400)`` in the Dungeon actor's config and the tile height happens to be ``2.5``, the actual placement will be on ``2.5 * 200 = 500 unreal units high``
+
+
+The sample theme file already contains a marker named 'Elevation' which shows the purple/blue tiles on the scene
+
+.. image:: /images/tutorial/E/80.png
+   :align: center
+
+There are two nodes attached with material overrides (purple and blue for land and sea tiles).  There's a selector logic on the first node that gets selected if the tile is below sea level.
+
+
+Add Grass Overlays
+^^^^^^^^^^^^^^^^^^
+
+We'll overlay some foliage on our dungeon using a noise parameter. Dungeon Architect always places the overlays in a way that they will not block the main path and the level will be playable.  You can overlay rocks, trees and other blocking objects as well
+
+Create a node ``Tilemap > Create Overlay``
+
+.. image:: /images/tutorial/E/81.png
+   :align: center
+
+.. figure:: /images/tutorial/E/83.png
+   :align: center
+   
+   Create Overlay Node Connection
+   
+.. figure:: /images/tutorial/E/84.png
+   :align: center
+   
+   Create Overlay Node properties
    
 
 ============================= =======================
+**Marker Name**               Grass
+**Overlay Blocks Tile**       False
 **Noise Settings**
 -----------------------------------------------------
-**> Noise Frequency**         0.2
-**> Noise Max Value**         1.5
-**> Noise Threshold**         0.75
+**> Noise Frequency**         0.15
+**> Noise Max Value**         1.49
+**> Noise Threshold**         0.5
 **> Min Dist From Main Path** 1
 
 **Merge Config**
 -----------------------------------------------------
 **> Max Height**              1
+**> Wall Override Rule**       Keep Wall Remove Overlay
 ============================= =======================
    
-.. figure:: /images/tutorial/04/78.png
+.. figure:: /images/tutorial/E/85.png
    :align: center
    
-   Result of the Create Tilemap Overlay Node
+   Result of the Grass Overlay Node
    
-.. figure:: /images/tutorial/04/79.png
+.. figure:: /images/tutorial/E/86.png
    :align: center
    
    Merged result
+   
+We've specified the marker name as ``Grass``.   You'll need to create this marker in the theme file and assign a mesh there.  The sample theme already contains this
+
+.. image:: /images/tutorial/E/82.png
+   :align: center
+
+.. figure:: /images/tutorial/E/87.jpg
+   :align: center
+   
+   Dungeon Preview
+   
+   
+.. figure:: /images/tutorial/E/88.gif
+   :align: center
+   
+   Before / After Tilemap Result
+   
+.. figure:: /images/tutorial/E/89.gif
+   :align: center
+   
+   Before / After Dungeon Result
    
    
 Finalize Tilemap
@@ -793,33 +840,18 @@ Finalize the tilemap to complete the grid flow graph
 
 Create a node ``Tilemap > Finalize Tilemap``
 
-.. figure:: /images/tutorial/04/menu/T_Finalize.png
+.. image:: /images/tutorial/E/90.png
    :align: center
    
 
-.. figure:: /images/tutorial/04/80.png
+.. image:: /images/tutorial/E/92.png
    :align: center
    
    
-.. figure:: /images/tutorial/04/81.png
+.. image:: /images/tutorial/E/91.png
    :align: center
    
 Finalize Tilemap node places all the items on to the tilemap (enemies, keys, bonus etc)
-
-
-Build Dungeon
-^^^^^^^^^^^^^
-
-Assign this grid flow graph to your DungeonGridFlow game object and click `Build Dungeon`
-
-
-.. figure:: /images/tutorial/04/82.png
-   :align: center
-   
-   
-.. figure:: /images/tutorial/04/83.jpg
-   :align: center
-   
 
 
 Optimize Tilemap
@@ -827,51 +859,53 @@ Optimize Tilemap
    
 When the tilemap based level is generated, there are many tiles that the player might never see, as they are far away from the dungeon layout
 
-.. figure:: /images/tutorial/04/84.jpg
+.. figure:: /images/tutorial/E/98.jpg
    :align: center
    
 
 The `Optimize Tilemap` removes tiles that are away from the specified distance from the dungeon layout bounds
    
    
-.. figure:: /images/tutorial/04/86.png
+.. figure:: /images/tutorial/E/96.png
    :align: center
    
    Optimize Tilemap Node Result
 
    
-.. figure:: /images/tutorial/04/87.gif
-   :align: center
-
-   Optimize Tilemap Before / After
-   
-   
-   
 Create a node ``Tilemap > Optimize Tilemap``
 
-.. figure:: /images/tutorial/04/menu/T_Optimize.png
+.. figure:: /images/tutorial/E/93.png
    :align: center
    
 Connect it before the `Finalize Tilemap` node like below:
 
-.. figure:: /images/tutorial/04/88.png
+.. figure:: /images/tutorial/E/99.png
    :align: center
    
    
-.. figure:: /images/tutorial/04/89.png
+Set the `Discard Distance from Layout` value to ``5``
+
+.. figure:: /images/tutorial/E/100.png
    :align: center
    
    Optimize Tilemap Node properties
 
 
-Rebuild the dungeon in the scene view
+This will drop any tiles that are 5 tiles away from the nearest layout tile
 
-.. figure:: /images/tutorial/04/85.gif
+   
+.. figure:: /images/tutorial/E/97.gif
    :align: center
 
    Optimize Tilemap Before / After
-  
+   
+   
+   
+.. figure:: /images/tutorial/E/95.gif
+   :align: center
 
+   Optimize Dungeon Preview Before / After
+   
 
 Key Lock System
 ---------------

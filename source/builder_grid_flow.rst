@@ -910,251 +910,110 @@ This will drop any tiles that are 5 tiles away from the nearest layout tile
 Key Lock System
 ---------------
 
-The spawned Key and Lock game objects will have the following components attached to it by Dungeon Architect
+The  Key and Lock actors that were spawned by the theme engine would have the `Item Metadata` filled up by Dungeon Architect, provided the actor has the ``Dungeon Grid Flow Item Metadata`` component attached to it
 
+In the sample, the Key and Lock blueprints has the above component added to it
 
-.. figure:: /images/tutorial/04/90.jpg
+.. figure:: /images/tutorial/E/101.png
    :align: center
    
-   New Components attached to the Key Prefab
+   Key blueprint
 
-
-.. figure:: /images/tutorial/04/91.jpg
+.. figure:: /images/tutorial/E/102.png
    :align: center
    
-   New Components attached to the Locked Door Prefab
+   Lock blueprint
 
 
-Key Component
-^^^^^^^^^^^^^
+When these actors are spawned in the scene, the item information will be filled in.   This includes the `Item Id`, list of references to other items (like keys referencing all the other lock ids it can open)
 
-The builder will attach a new component ``GridFlowDoorKeyComponent`` to the spawned key prefab
 
-.. figure:: /images/tutorial/04/92.png
+.. figure:: /images/tutorial/E/103.jpg
    :align: center
+    
+   Key Metadata
 
-
-This component contains the KeyId and a reference to all the locks that this key can open
-
-==================== =============================================
-**Key Id**           The Key Id
-**Valid Lock Ids**   List of Lock Ids that can be opened by this key
-**Lock Refs**        References to the spawned lock game objects that can be opened by this key
-==================== =============================================
-
-Lock Component
-^^^^^^^^^^^^^^
-
-The builder will attach a new component ``GridFlowDoorLockComponent`` to the spawned lock prefab
-
-.. figure:: /images/tutorial/04/93.png
+.. figure:: /images/tutorial/E/104.jpg
    :align: center
+   
+   Lock Metadata
+   
+   
+Notice the Key metadata has a reference to the red locked door's id 
 
-This component contains the LockId and a reference to all the keys that open this lock
-
-==================== =============================================
-**Lock Id**          The Lock Id
-**Valid Key Ids**    List of Key Ids that open this lock
-**Valid Key Refs**   References to the spawned key game objects that open this lock
-==================== =============================================
+.. image:: /images/tutorial/E/105.jpg
+   :align: center
 
 
 Sample
 ^^^^^^
 
-Game Sample Scene: ``Assets/DungeonArchitect_Samples/DemoBuilder_GridFlow/Scenes/GridFlowBuilderDemo_Game``
+Try out the Game Sample from the Launch Pad. Navigate to ``Launch Pad > Samples > Grid Flow Builder > Grid Flow Game > Clone Scene``
+
+.. image:: /images/tutorial/E/106.jpg
+   :align: center
+
 
 The GridFlow game sample contains a working example of how you can implement a key lock system. There are many ways of implementing this, this sample shows one such way. 
 
 The Sample has the following scripts:
 
 * Inventory: Saves the picked up keys in the inventory
-* LockedDoor: A script that implements the door opening logic. This script is added to the locked door prefab. When something collides with the door trigger, it checks if it has an inventory.  If it does, it checks if the inventory contains any of the valid keys that can open this door
+* LockedDoor: Blueprint function ``CanOpenDoor`` to check if the door can be opened. This is done by checking if the collided actor has an inventory. If so, it checks if the inventory contains a key that can open this locked door id
 
-
-LockedDoor script location: ``Assets/DungeonArchitect_Samples/DemoBuilder_GridFlow/Scripts/DemoGame/Door/LockedDoor.cs`` 
-
-.. code-block:: c#
-
-	bool CanOpenDoor(Collider other)
-	{
-		var inventory = other.gameObject.GetComponentInChildren<Inventory>();
-		if (inventory != null)
-		{
-			// Check if any of the valid keys are present in the inventory of the collided object
-			foreach (var validKey in validKeys)
-			{
-				if (inventory.ContainsItem(validKey))
-				{
-					return true;
-				}
-			}
-		}
-		return false;
-	}
-
-
-
+Check the door blueprint ``Dungeon Architect Content > Builders > GridFlowContent > Art > Blueprints >  Locks > BP_GFT_LockBase > CanOpenDoor``
 
 Mini-Map
 --------
 
 Display a 2D minimap with fog of war 
 
-.. figure:: /images/tutorial/04/94.jpg
+.. image:: /images/tutorial/E/107.jpg
    :align: center
    
 
-The ``DungeonGridFlow`` prefab already comes pre-configured with the minimap.  This is done with the ``GridFlowMinimap`` component: 
+Drop in a `Grid Flow Mini Map` actor on to the scene and configure it like below
 
-.. figure:: /images/tutorial/04/95.png
+.. image:: /images/tutorial/E/108.png
+   :align: center
+   
+.. image:: /images/tutorial/E/109.png
+   :align: center
+   
+.. image:: /images/tutorial/E/110.png
    :align: center
    
 
-======================== =====================================
-**Update Frequency**     Control the frequency of minimap updates. The updates can run at a lower fps for better performance
-**Enable Fog of War**    Hides parts of the map that is not explored yet
-**See Through Walls**    If this is disabled, unexplored area behind a wall will not be made visible.  This works if Fog of War is enabled
-**Minimap Texture**      The Render Target texture that the minimap will be rendered on 
-**Icons**                The icons to overlay on special tiles
+Check the player controller on how to initialize the minimap and show it on the screen ``DungeonArchitect Content > Samples > DA_GridFlow_Game > Blueprints > BP_GridFlowDemo_PlayerController``
 
-**Init Mode**            
---------------------------------------------------------------
- >> On Dungeon Rebuild   The minimap layout texture is regenerated when the dungeon rebuilds
- >> On Play              The minimap layout texture is generated when you start play
- >> Manual               The minimap layout texture is generated only when you manually build it from script
-======================== =====================================
+.. figure:: /images/tutorial/E/111.png
+   :align: center
+   
+   `Right Click > Open Image In New Tab` for a clearer image
 
-
-Setup
-^^^^^
-
-The minimap requires you to provide a Render Texture asset in the `Minimap Texture` property.  The minimap will be rendered in this texture.  You can then apply this texture anywhere (in your UI elements, in a mesh etc)
-
-Create a new Render Texture asset. Use the Create menu in the Project window: ``Create > Render Texture``
-
-.. figure:: /images/tutorial/04/96.png
+.. image:: /images/tutorial/E/112.png
    :align: center
 
 
-Select the Render Texture asset and inspect the properties
+Check the HUD widget on how to display this in the screen
 
-.. figure:: /images/tutorial/04/97.png
-   :align: center
-
-
-Change the following:
-
-======================== =====================================
-**Size**                 Change to 512x512 (or the quality you are comfortable with)
-**Depth Buffer**         No Depth buffer (we don't need it here)
-**Filter Mode**          Point (so we get sharp tile edges instead of a blurry image)
-======================== =====================================
-
-
-Assign this `Render Texture` asset to your DungeonGridFlow game object's minimap component
-
-.. figure:: /images/tutorial/04/98.jpg
-   :align: center
-
-
-Dungeon Architect will automatically update this texture based on the specified `Update Frequency`. You can assign this texture anywhere on your UI. You can also attach it on a mesh
-
-Show in UI
-^^^^^^^^^^
-
-Open the game sample scene: ``Assets/DungeonArchitect_Samples/DemoBuilder_GridFlow/Scenes/GridFlowBuilderDemo_Game``
-
-There's a UI canvas in the hierarchy. Expand and inspect it:
-
-
-.. figure:: /images/tutorial/04/99.png
-   :align: center
-
-
-There is a `RawImage` Canvas Item in there. It was created like this:
-
-.. figure:: /images/tutorial/04/102.jpg
-   :align: center
-
-
-Select the RawImage item and configure it like this:
-
-.. figure:: /images/tutorial/04/101.png
-   :align: center
-
-.. figure:: /images/tutorial/04/100.jpg
-   :align: center
-
-The Render Texture was assigned there so it will show our minimap
-
-
-Add to a Material
-^^^^^^^^^^^^^^^^^
-
-While playing the sample game, if you look down, you notice the player holding a map in the hand (like in Minecraft).   This map shows the minimap in realtime
-
-.. figure:: /images/tutorial/04/103.jpg
-   :align: center
-
-
-The texture was simply added to an unlit material, and the material was then applied to that mesh
-
-Create a Material as below:
-
-.. figure:: /images/tutorial/04/104.png
-   :align: center
-
-* Set the Shader to ``UI/Unlit/Transparent``
-* Set the texture to your Render Texture asset
-
-You can now apply this material anywhere (e.g. in a large billboard in your world, a small map that the player holds,  dashboard of a vehicle etc)
-
-
-.. seealso::
-	Check the sample game to see how this was done
-
-	================== ===========================
-	**Tablet Prefab**  `Assets/DungeonArchitect_Samples/DemoBuilder_GridFlow/Art/Prefab/Tablet_Map`
-	**Material**       `Assets/DungeonArchitect_Samples/DemoBuilder_GridFlow/Art/Materials/Mat_TabletScreen`
-	================== ===========================
+``DungeonArchitect Content > Samples > DA_GridFlow_Game > UI > UI_GridFowDemo_HUD``
 
 
 Minimap Tracked Objects
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-The minimap can track any object in the scene.  You do this by adding the `GridFlowMinimapTrackedObject` component to the desired prefab
+To track an object in the minimap, simple add the ``DungeonMiniMapTrackedObject`` component to it and configure it. 
 
-.. figure:: /images/tutorial/04/105.png
+
+.. image:: /images/tutorial/E/114.png
    :align: center
-   
-   Added to the Player prefab
-   
-   
-.. figure:: /images/tutorial/04/106.png
+
+
+.. image:: /images/tutorial/E/113.png
    :align: center
-   
-   Added to the Enemy prefab
 
+The id maps to the id you specified in the MiniMap actor's icon list
 
-It has the following features:
-
-* The tracked object can explore the minimap (e.g. player and allies)
-* Specify an icon, color and scale of the object in the minimap
-* the icon can rotate to indicate the game object's Y rotation (good for player game objects)
-
-
-You'd want to turn on `Explores Fog of War` only for the player and other relavant objects.   The icon can be greyscale and you can apply a tint on it with different colors (e.g. on key icon but different colors applied to the red key prefab, blue key prefab and so on)
-
-.. seealso::
-	Check the sample game prefabs to see how the component was configured
-
-	==================== ====================
-	Player Controller    Assets/DungeonArchitect_Samples/DemoBuilder_GridFlow/Scenes/DemoGameSupportFiles/Prefabs/GridFlowPlayerController
-	Grund NPC            Assets/DungeonArchitect_Samples/DemoBuilder_GridFlow/Scenes/DemoGameSupportFiles/Prefabs/Enemy
-	Key (Red)            Assets/DungeonArchitect_Samples/DemoBuilder_GridFlow/Art/Prefab/KeySkull_Red
-	Key (Blue)           Assets/DungeonArchitect_Samples/DemoBuilder_GridFlow/Art/Prefab/KeySkull_Blue
-	Door (Yellow)        Assets/DungeonArchitect_Samples/DemoBuilder_GridFlow/Art/Prefab/DoorLargeLocked_Yellow
-	Door (Green)         Assets/DungeonArchitect_Samples/DemoBuilder_GridFlow/Art/Prefab/DoorLargeLocked_Green
-	==================== ====================
-
+.. image:: /images/tutorial/E/115.png
+   :align: center

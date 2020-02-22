@@ -545,7 +545,10 @@ To find where you layer info is, Navigate to the Landscape tab > Paint section. 
    Landscape Transformer
 
 
-YOUTUBE(9MI9IzNytuY)
+.. raw:: html
+
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/9MI9IzNytuY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 
 
@@ -571,7 +574,9 @@ Navigate to `Edit > Project Settings > Navgation Mesh > Runtime > Dynamic`
 
 This will automatically regenerate the navigation on runtime generated dungeons.  Be sure to have a `Nav Mesh bounds Volume` large enough to wrap the whole dungeon.  There is an example in the quick start guide to automatically wrap the navigation volume around a dungeon after it has been built.
 
-YOUTUBE(uowWAVwEiEc)
+.. raw:: html
+
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/uowWAVwEiEc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 

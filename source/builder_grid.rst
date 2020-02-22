@@ -65,35 +65,31 @@ Theme Override Volumes let you apply another theme on certain portions of your d
 
 Navigate to ``Asset/DungeonArchitect/Prefabs`` and drag drop the ``ThemeOverrideVolume`` prefab on to the scene
 
-.. figure:: /images/tutorial/06/06.png
+.. figure:: /images/tutorial/F/09.png
    :align: center
    
 
 Move and scale it to cover a certain portion of the dungeon
 
 
-.. figure:: /images/tutorial/06/07.jpg
+.. figure:: /images/tutorial/F/07.jpg
    :align: center
-   
+
    
 Select the theme override volume you just dropped and inspect the properties and assign the DungeonGrid reference
 
-.. figure:: /images/tutorial/06/08.png
+.. figure:: /images/tutorial/F/10.png
    :align: center
 
+Assign a theme you'd like to apply within these bounds.  Then hit ``Rebuild Dungeon`` button
 
-Navigate to ``Assets/DungeonArchitect_Samples/Demo_Theme_SimpleShapes/Themes`` and assign the theme ``Theme_Basic_White`` to the Theme Override Volume
-
-.. figure:: /images/tutorial/06/09.png
-   :align: center
-
-
-Click ``Rebuild Dungeon``
-
-
-.. figure:: /images/tutorial/06/10.jpg
+.. figure:: /images/tutorial/F/08.jpg
    :align: center
    
+.. figure:: /images/tutorial/F/11.gif
+   :align: center
+   
+   Before / After theme override
 
 
 Paint Mode
@@ -101,15 +97,14 @@ Paint Mode
 
 You can paint your own dungeon layout on top of the procedural dungeon
 
-Select the DungeonGrid prefab and expand it.   Select the ``PaintMode`` game object.  This will activate the `Paint Mode`
+Select the Dungeon Edit Mode from the Modes panel.  This will allow you to use the various paint tools to draw over the existing layout
 
-
-.. figure:: /images/tutorial/06/11.png
+.. figure:: /images/tutorial/F/12.png
    :align: center
    
 ``Left click`` and drag to draw dungeon cells.   ``Shift + Left click`` to delete cells.   ``Scroll wheel`` to move the cursor up/down
 
-.. figure:: /images/tutorial/06/12.gif
+.. figure:: /images/tutorial/F/13.gif
    :align: center
    
 

@@ -19,7 +19,7 @@ A selection rule is a blueprint class (or C++ class) that is used to decide if t
 Selection rules gives you more power, when you need it.   In the rule's blueprint logic, you can query the dungeon model and determin if this node should be inserted into the scene
 
 Using Selection Rules
-^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^
 To assing an existing rule into the node, Check the **Use Selection Logic** property and select the rule you would like to attach to the node from the dropdown list
 
 
@@ -234,3 +234,157 @@ In this example a small random rotation is applied to orange ground tiles.  Usef
    Transformation Rule Blueprint
 
 
+Spawn Logic
+-----------
+
+Spawn Logics are blueprints that are attached to visual nodes and are executed whenever that visual item (mesh, actor, particle system, light etc) is spawned into the scene
+
+These are great for initializing blueprints (or randomizing them). Some use cases include randomizing the colors of the lights that spawn from a light node, or you can use it to initialize your blueprints spawned from the actor nodes
+
+
+You can attach a spawn logic to any visual node (e.g. mesh node, light node, particle system node, actor node etc)
+
+Set the *Use Spawn Logic* flag and choose your spawn logic blueprint
+
+
+.. figure:: /images/tutorial/G/spawn_logic_detail.png
+   :align: center
+
+   Spawn Logic
+
+
+Create Spawn Logic
+^^^^^^^^^^^^^^^^^^
+
+
+.. figure:: /images/tutorial/G/spawn_logic_create.png
+   :align: center
+
+   Spawn Logic
+
+Create a new blueprint class and pick DungeonSpawnLogic class as the parent
+
+Define Spawn Logic
+^^^^^^^^^^^^^^^^^^
+
+Open your blueprint and override the *OnItemSpawn* function.   
+
+
+.. figure:: /images/tutorial/G/spawn_logic_override.png
+   :align: center
+
+   Spawn Logic
+
+Get the reference of the spawn actor and cast it to the type you are expecting.  Since this logic was attached to a mesh node,  it is cast to a static mesh and customizations can be applied to it 
+
+.. figure:: /images/tutorial/G/spawn_logic_override2.png
+   :align: center
+
+   Spawn Logic
+
+
+Another blueprint that was attached to a point light.  Since we expect a point light, we cast to the correct type and change the color
+
+.. figure:: /images/tutorial/G/spawn_logic_override3.png
+   :align: center
+
+   Spawn Logic
+
+
+Clustered Theming
+-----------------
+
+Clustered theming allows you to automatically apply different themes to various parts (clusters) of your dungeons. This helps in adding variation to your levels and break monotony
+
+A continous section of corridor cells or rooms are assigned to a clusters to have a proper theme transtions 
+
+
+.. figure:: /images/tutorial/G/cluster_theme.jpg
+   :align: center
+
+   Cluster Theming
+
+Using Clustered Theming
+^^^^^^^^^^^^^^^^^^^^^^^
+
+To use clustered theming, enable it from the dungeon's detail panel
+
+
+.. figure:: /images/tutorial/G/cluster_theme_enable.png
+   :align: center
+
+   Enable Cluster Theming
+
+Once enabled, you need to define a list of theme sets you'd like to apply on the clusters from the Advanced category of the dungeon's detail panel
+
+
+.. figure:: /images/tutorial/G/cluster_theme_advanced_details.png
+   :align: center
+
+   Assign Cluster Themes
+
+.. important::
+   When you use clustered themes, the **dungeon's default theme array list will be ignored** and the theme list defined in the cluster themes mapping would be used instead
+
+Currently, only the grid builder supports clustered theming
+
+
+Height Variations
+^^^^^^^^^^^^^^^^^
+
+Corridor cells connected together are grouped into a cluster.   You can customize if connected nearby corridor cells on different height (connected through stairs) should be grouped into the same cluster
+
+
+.. figure:: /images/tutorial/G/cluster_theme_advanced_details.png
+   :align: center
+
+   Cluster Height Variation
+
+
+
+.. figure:: /images/tutorial/G/cluster_theme_height1.jpg
+   :align: center
+
+   Cluster Height Variation 
+
+.. figure:: /images/tutorial/G/cluster_theme_height2.jpg
+   :align: center
+
+   Cluster Height Variation
+
+Notice the corridor on the bottom right.  It was split into two themes because of the height variation
+
+Spatial Constraints
+-------------------
+
+Spatial constraints are great of checking the state of nearby tiles and using it as a condition to place items on the scene
+
+Spatial constraints are set in the theme graph's node.   
+
+
+.. figure:: /images/tutorial/G/spatial_constraint_a.jpg
+   :align: center
+
+   Spatial Constraints 
+
+In the above example, a statue mesh is added to the ground marker.    We want this to appear only on the corners and not on each tile
+
+Select a mesh node and in the details panel, enable *Use Spatial Constraint*
+
+Then select the spatial constraint type.  Since this is a ground mesh, it is surrounded by 3x3 tiles
+
+
+.. figure:: /images/tutorial/G/spatial_constraint2.png
+   :align: center
+
+   Spatial Constraints
+
+Expand the spatial setup. Here you specify the rules of the adjacent tiles, whether it should be empty, occupied or should be ignored.   The rules will try to rotate to best fit the layout
+
+
+.. figure:: /images/tutorial/G/spatial_constraint3.jpg
+   :align: center
+
+   Spatial Constraints
+
+With this setup, the statues spawn only at the corners

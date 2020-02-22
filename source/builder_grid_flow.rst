@@ -697,6 +697,25 @@ When you select a node on the layout graph, the tiles that belong to the node li
 .. image:: /images/tutorial/E/73.gif
    :align: center
 
+3D Viewport
+^^^^^^^^^^^
+
+After you've initialized a tilemap, you now start to see a dungeon generated in the 3D viewport, representing by the tilemap.
+
+.. image:: /images/tutorial/E/116.jpg
+   :align: center
+
+The dungeon uses a default theme and the preview theme can be changed from the settings
+
+.. image:: /images/tutorial/E/117.png
+   :align: center
+
+.. image:: /images/tutorial/E/118.png
+   :align: center
+
+
+
+
 Add Background Elevation
 ^^^^^^^^^^^^^^^^^^^^^^^^
 

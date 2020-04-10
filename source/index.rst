@@ -26,3 +26,9 @@ Welcome to Dungeon Architect Tutorials [UE4]
    builder_simple_city
    builder_floor_plan
    builder_isaac
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Misc
+   
+   manual_installation

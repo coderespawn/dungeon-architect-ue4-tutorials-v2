@@ -929,7 +929,7 @@ This will drop any tiles that are 5 tiles away from the nearest layout tile
 Key Lock System
 ---------------
 
-The  Key and Lock actors that were spawned by the theme engine would have the `Item Metadata` filled up by Dungeon Architect, provided the actor has the ``Dungeon Grid Flow Item Metadata`` component attached to it
+The  Key and Lock actors that were spawned by the theme engine would have the `Item Metadata` filled up by Dungeon Architect, provided the actor has the ``Dungeon Flow Item Metadata`` component attached to it
 
 In the sample, the Key and Lock blueprints has the above component added to it
 
